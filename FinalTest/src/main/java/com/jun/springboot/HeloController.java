@@ -31,6 +31,7 @@ public class HeloController {
 	 * @remark 	웹 페이지를 불러오기 위한 초기페이지 설정		[2019-06-17; 양현준] \n
 	 * 		   	FinaAll()를 이용해 모든 데이터를 List에 저장	[2019-06-17; 양현준]
 	 */
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView index(ModelAndView mav) {
 
@@ -43,6 +44,7 @@ public class HeloController {
 		
 		return mav;
 	}
+	
 	/**
 	 *
 	 * @fn 		public ModelAndView insert(ModelAndView mav)
@@ -56,6 +58,7 @@ public class HeloController {
 	 *
 	 * @remark 	입력  페이지를 불러오기 위한 초기페이지 설정		[2019-06-17; 양현준]
 	 */
+	
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
 	public ModelAndView insert(ModelAndView mav) {
 		
@@ -65,6 +68,7 @@ public class HeloController {
 
 		return mav;
 	}
+	
 	/**
 	 *
 	 * @fn 		public ModelAndView insert(ModelAndView mav)
@@ -79,6 +83,7 @@ public class HeloController {
 	 * @remark 	input box에 입력된 값을 받아온 후 저장 		[2019-06-17; 양현준] \n
 	 * 			repository.save를 이용해 DB에 값 저장 		[2019-06-17; 양현준]
 	 */
+	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public ModelAndView form(
 			@RequestParam("name") String name,
@@ -93,6 +98,7 @@ public class HeloController {
 		
 		return new ModelAndView("redirect:/");
 	}
+	
 	/**
 	 *
 	 * @fn 		public ModelAndView detail(ModelAndView mav)
@@ -106,6 +112,7 @@ public class HeloController {
 	 *
 	 * @remark 	findById로 조건 검색 후 페이지에 출력 		[2019-06-17; 양현준]
 	 */
+	
 	@RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
 	public ModelAndView detail(@PathVariable("id") String id, ModelAndView mav) {
 		
@@ -118,6 +125,7 @@ public class HeloController {
 		
 		return mav;
 	}
+	
 	/**
 	 *
 	 * @fn 		public ModelAndView edit(ModelAndView mav)
@@ -131,6 +139,7 @@ public class HeloController {
 	 *
 	 * @remark 	findById로 조건 검색 후 페이지에 출력 		[2019-06-17; 양현준]
 	 */
+	
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
 	public ModelAndView edit(@PathVariable("id") String id, ModelAndView mav) {
 		
@@ -144,6 +153,7 @@ public class HeloController {
 		
 		return mav;
 	}
+	
 	/**
 	 *
 	 * @fn 		public ModelAndView editpost(ModelAndView mav)
@@ -159,6 +169,7 @@ public class HeloController {
 	 * 			repository.save를 통해 받아온 객체 DB에 저장 	   [2019-06-17; 양현준]
 	 * 			repository.deleteById를 통해 기존에 있던 데이터 삭제 [2019-06-17; 양현준]
 	 */
+	
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
 	public ModelAndView editpost(
 			@RequestParam("id") String id,
@@ -175,6 +186,7 @@ public class HeloController {
 		
 		return new ModelAndView("redirect:/");
 	}
+	
 	/**
 	 *
 	 * @fn 		public ModelAndView deletecheck(ModelAndView mav)
@@ -188,6 +200,7 @@ public class HeloController {
 	 *
 	 * @remark 	findById를 통해 해당 게시글에 대한 삭제 유무 확인	   [2019-06-17; 양현준]
 	 */
+	
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public ModelAndView deletecheck(@PathVariable("id") String id, ModelAndView mav) {
 		mav.setViewName("delete");
@@ -200,6 +213,7 @@ public class HeloController {
 		
 		return mav;
 	}
+	
 	/**
 	 *
 	 * @fn 		public ModelAndView delete(ModelAndView mav)
@@ -213,6 +227,7 @@ public class HeloController {
 	 *
 	 * @remark 	deleteById를 통해 데이터 삭제	   [2019-06-17; 양현준]
 	 */
+	
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	public ModelAndView delete(@RequestParam("id") String id, ModelAndView mav) {
 		
