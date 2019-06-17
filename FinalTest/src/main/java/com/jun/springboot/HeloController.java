@@ -112,5 +112,13 @@ public class HeloController {
 		
 		return mav;
 	}
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public ModelAndView delete(@PathVariable("id") String id, ModelAndView mav) {
+		
+		repository.deleteById(id);
+		
+		return new ModelAndView("redirect:/");
+	}
 
 }
