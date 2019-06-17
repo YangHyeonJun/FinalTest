@@ -12,6 +12,7 @@ public class MyDataMongo {
 	private String name;
 	private String eMail;
 	private String phonenumber;
+	private String result;
 	private Date date;
 	
 	private int age;
@@ -34,6 +35,24 @@ public class MyDataMongo {
 		double tallCM = tall / 100.0;
 		this.bmi = Math.round((weight / (tallCM * tallCM))*10)/10.0;
 		
+		this.result = result;
+		result = "";
+		
+		if (bmi <= 18.4) {
+			result += "당신은 저체중 입니다. 좀찌세요.";
+		}
+		else if (bmi >= 18.5 && bmi <= 24.9) {
+			result += "당신은 정상체중 입니다.";
+		}
+		else if (bmi >= 25 && bmi <= 29.9) {
+			result += "당신은 과체중 입니다.";
+		}
+		else if (bmi >= 30) {
+			result += "당신은 비만입니다. 살빼세요.";
+		}
+		else {
+			result += "키와 몸무게를 다시한번 확인해주세요.";
+		}
 	}
 	public String getId() {
 		return id;
@@ -58,6 +77,12 @@ public class MyDataMongo {
 	}
 	public void setPhonenumber(String phonenumber) {
 		this.phonenumber = phonenumber;
+	}
+	public String getResult() {
+		return result;
+	}
+	public void setResult(String result) {
+		this.result = result;
 	}
 	public Date getDate() {
 		return date;
