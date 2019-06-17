@@ -15,4 +15,19 @@ import com.jun.springboot.repositories.MyDataMongoRepository;
 @Controller
 public class HeloController {
 
+	@Autowired
+	MyDataMongoRepository repository;
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ModelAndView index(ModelAndView mav) {
+
+		mav.setViewName("index");
+		mav.addObject("title", "회원 정보");
+		mav.addObject("msg", "회원정보");
+
+		Iterable<MyDataMongo> list = repository.findAll();
+		mav.addObject("datalist", list);
+		
+		return mav;
+	}
 }
