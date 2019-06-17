@@ -82,5 +82,22 @@ public class HeloController {
 		
 		return mav;
 	}
+	
+	@RequestMapping(value = "/edit", method = RequestMethod.POST)
+	public ModelAndView editpost(
+			@RequestParam("id") String id,
+			@RequestParam("name") String name,
+			@RequestParam("eMail") String eMail,
+			@RequestParam("phonenumber") String phonenumber,
+			@RequestParam("age") int age,
+			@RequestParam("tall") double tall, 
+			@RequestParam("weight") double weight, ModelAndView mov)
+	{
+		MyDataMongo mydata = new MyDataMongo(name, eMail, phonenumber, age, tall, weight);
+		repository.save(mydata);
+		repository.deleteById(id);
+		
+		return new ModelAndView("redirect:/");
+	}
 
 }
