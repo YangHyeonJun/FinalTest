@@ -69,4 +69,18 @@ public class HeloController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+	public ModelAndView edit(@PathVariable("id") String id, ModelAndView mav) {
+		
+		mav.setViewName("edit");
+		mav.addObject("title", "Edit");
+		mav.addObject("msg", "변경하실 정보를 입력해주세요.");
+		
+		List<MyDataMongo> list = repository.findById(id);
+		
+		mav.addObject("datalist", list);
+		
+		return mav;
+	}
+
 }
