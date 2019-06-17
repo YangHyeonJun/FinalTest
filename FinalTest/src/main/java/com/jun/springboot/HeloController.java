@@ -30,4 +30,14 @@ public class HeloController {
 		
 		return mav;
 	}
+	
+	@RequestMapping(value = "/insert", method = RequestMethod.GET)
+	public ModelAndView insert(ModelAndView mav) {
+		
+		mav.setViewName("insert");
+		mav.addObject("title", "회원 가입");
+		mav.addObject("msg", "회원 정보를 작성해주세요.");
+
+		return mav;
+	}
 }
