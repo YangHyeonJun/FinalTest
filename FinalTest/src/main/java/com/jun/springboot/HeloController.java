@@ -200,7 +200,19 @@ public class HeloController {
 		
 		return mav;
 	}
-	
+	/**
+	 *
+	 * @fn 		public ModelAndView delete(ModelAndView mav)
+	 * 
+	 * @brief 	삭제 페이지 설정 
+	 *
+	 * @author 	양현준
+	 * @date 	2019-06-17
+	 *
+	 * @param 	mav ModelAndView
+	 *
+	 * @remark 	deleteById를 통해 데이터 삭제	   [2019-06-17; 양현준]
+	 */
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	public ModelAndView delete(@RequestParam("id") String id, ModelAndView mav) {
 		
